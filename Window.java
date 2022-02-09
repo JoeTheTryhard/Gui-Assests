@@ -11,8 +11,8 @@ public class Window extends JFrame
 
         JPanel panel = new JPanel();
         panel.setLayout(new FlowLayout());
-        panel.add(new MyButton("Click"));
-        panel.add(new MyButton("Bruh"));
+        panel.add(new MyButton("Click", 200, 200, 200, 25));
+        panel.add(new MyButton("Bruh", 200, 200, 200, 0));
         
         this.add(panel, BorderLayout.NORTH);
 
