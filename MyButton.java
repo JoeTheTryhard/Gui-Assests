@@ -8,15 +8,20 @@ class MyButton extends JLabel implements MouseListener
     private int difference;
     private Color prsclr;
     private Color hvrclr;
+    private static Font cstfont = new Font("Rockwell", Font.BOLD, 11);
 
     private MyButton(String text)
     {
         super(text);
+        setFont(cstfont);
+        setForeground(Color.WHITE);
+        
+        setHorizontalAlignment(SwingConstants.CENTER);
         setOpaque(true);
         clr = new Color(200, 200, 200);
         difference = 25;
-        prsclr = new Color(clr.getRed()-difference, clr.getGreen()-difference, clr.getBlue()-difference);
-        hvrclr = new Color(clr.getRed()+difference/2, clr.getGreen()+difference/2, clr.getBlue()+difference/2);
+        prsclr = new MyColor(clr.getRed()-difference, clr.getGreen()-difference, clr.getBlue()-difference);
+        hvrclr = new MyColor(clr.getRed()+difference/2, clr.getGreen()+difference/2, clr.getBlue()+difference/2);
 
         setBackground(clr);
         setBorder((new MyBorder()).border);
@@ -28,19 +33,19 @@ class MyButton extends JLabel implements MouseListener
         this(text);
         clr = c1;
         difference = diff;
-        prsclr = new Color(clr.getRed()-difference, clr.getGreen()-difference, clr.getBlue()-difference);
-        hvrclr = new Color(clr.getRed()+difference/2, clr.getGreen()+difference/2, clr.getBlue()+difference/2);
+        prsclr = new MyColor(clr.getRed()-difference, clr.getGreen()-difference, clr.getBlue()-difference);
+        hvrclr = new MyColor(clr.getRed()+difference/2, clr.getGreen()+difference/2, clr.getBlue()+difference/2);
         setBackground(clr);
         addMouseListener(this);
     }
-    public MyButton(String text, int r, int g, int b, int diff)
+    public MyButton(String text, int r, int g, int b, int difference)
     {
-        this(text, new Color(r, g, b), diff);
+        this(text, new MyColor(r, g, b), difference);
         addMouseListener(this);
     }
     public MyButton(String text, int r, int g, int b)
     {
-        this(text, new Color(r, g, b), 0);
+        this(text, new MyColor(r, g, b), 0);
         addMouseListener(this);
     }
 
